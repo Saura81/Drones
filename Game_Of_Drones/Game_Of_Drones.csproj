@@ -11,6 +11,7 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,11 +24,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\components\game\FetchCurrentGameScore.tsx" />
+    <None Remove="ClientApp\components\game\PlayerScreen.tsx" />
     <None Remove="ClientApp\components\Rounds.tsx" />
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\components\Rounds.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\game\FetchCurrentGameScore.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\game\PlayerScreen.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\game\Round.tsx" />
   </ItemGroup>
 
   <ItemGroup>

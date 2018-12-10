@@ -25,8 +25,8 @@ export class FetchScoreData extends React.Component<RouteComponentProps<{}>, Fet
             : FetchScoreData.renderScoreTable(this.state.score);
 
         return <div>
-            <h1>Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
+            <h1>High Scores</h1>
+            <p>Amount of games won per player.</p>
             { contents }
         </div>;
     }
@@ -43,7 +43,7 @@ export class FetchScoreData extends React.Component<RouteComponentProps<{}>, Fet
                 {scores.map(score =>
                     <tr key={score.scoreId}>
                         <td>{score.playerName}</td>
-                        <td>{score.roundNumber}</td>
+                        <td>{score.gamesWon}</td>
                     </tr>
             )}
             </tbody>
@@ -54,5 +54,5 @@ export class FetchScoreData extends React.Component<RouteComponentProps<{}>, Fet
 interface Score {
     scoreId: string;
     playerName: string;
-    roundNumber: number;
+    gamesWon: number;
 }

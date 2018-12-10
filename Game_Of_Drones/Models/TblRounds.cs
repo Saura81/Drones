@@ -10,8 +10,6 @@ namespace Game_Of_Drones.Models
         public string SecondPlayerName { get; set; }
         public string FirstPlayerMove { get; set; }
         public string SecondPlayerMove { get; set; }
-        public int GameNumber { get; set; }
         public string Winner { get; set; }
-        public int? RoundNumber { get; set; }
     }
 }

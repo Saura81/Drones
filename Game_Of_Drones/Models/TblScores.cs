@@ -7,6 +7,6 @@ namespace Game_Of_Drones.Models
     {
         public int ScoreId { get; set; }
         public string PlayerName { get; set; }
-        public int? RoundNumber { get; set; }
+        public int? GamesWon { get; set; }
     }
 }

@@ -8,9 +8,9 @@ namespace Game_Of_Drones.Services
 {
     public class ScoreDao : IScoreDao
     {
-        private dronesContext db ;
+        private masterContext db;
 
-        public ScoreDao(dronesContext dataBase)
+        public ScoreDao(masterContext dataBase)
         {
             db = dataBase;
         }

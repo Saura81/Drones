@@ -1,17 +1,16 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
 
 namespace Game_Of_Drones.Models
 {
-    public partial class dronesContext : DbContext
+    public partial class masterContext : DbContext
     {
-        public dronesContext()
+        public masterContext()
         {
         }
 
-        public dronesContext(DbContextOptions<dronesContext> options)
+        public masterContext(DbContextOptions<masterContext> options)
             : base(options)
         {
         }
@@ -24,7 +23,6 @@ namespace Game_Of_Drones.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-//                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-9FOD2JJ;Initial Catalog=drones;Integrated Security=True");
             }
         }
 
@@ -35,16 +33,11 @@ namespace Game_Of_Drones.Models
             modelBuilder.Entity<TblMoves>(entity =>
             {
                 entity.HasKey(e => e.MoveId)
-                    .HasName("PK__tblMoves__A931A43C5DD45C41");
+                    .HasName("PK__tblMoves__A931A43C46C0AB23");
 
                 entity.ToTable("tblMoves");
 
                 entity.Property(e => e.MoveId).HasColumnName("MoveID");
-
-                entity.Property(e => e.Kills)
-                    .IsRequired()
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
 
                 entity.Property(e => e.MoveName)
                     .IsRequired()
@@ -55,14 +48,13 @@ namespace Game_Of_Drones.Models
             modelBuilder.Entity<TblRounds>(entity =>
             {
                 entity.HasKey(e => e.RoundId)
-                    .HasName("PK__tblRound__94D84E1A39E181E4");
+                    .HasName("PK__tblRound__94D84E1A02D7BF82");
 
                 entity.ToTable("tblRounds");
 
                 entity.Property(e => e.RoundId).HasColumnName("RoundID");
 
                 entity.Property(e => e.FirstPlayerMove)
-                    .IsRequired()
                     .HasMaxLength(40)
                     .IsUnicode(false);
 
@@ -72,7 +64,6 @@ namespace Game_Of_Drones.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.SecondPlayerMove)
-                    .IsRequired()
                     .HasMaxLength(40)
                     .IsUnicode(false);
 
@@ -89,7 +80,7 @@ namespace Game_Of_Drones.Models
             modelBuilder.Entity<TblScores>(entity =>
             {
                 entity.HasKey(e => e.ScoreId)
-                    .HasName("PK__tblScore__7DD229F10AB818D8");
+                    .HasName("PK__tblScore__7DD229F1E34C2843");
 
                 entity.ToTable("tblScores");
 

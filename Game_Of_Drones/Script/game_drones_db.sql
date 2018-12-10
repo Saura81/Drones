@@ -1,29 +1,30 @@
-CREATE TABLE [drones]..tblRounds(
+USE [master]
+GO
+
+CREATE TABLE tblRounds(
 RoundID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 FirstPlayerName VARCHAR(40) NOT NULL,
 SecondPlayerName VARCHAR(40) NOT NULL,
-FirstPlayerMove VARCHAR(40) NOT NULL,
-SecondPlayerMove VARCHAR(40) NOT NULL,
-GameNumber int NOT NULL,
+FirstPlayerMove VARCHAR(40),
+SecondPlayerMove VARCHAR(40) ,
 Winner VARCHAR(40),
-RoundNumber int,
 );
 GO
 
-CREATE TABLE [drones]..tblMoves(
+CREATE TABLE tblMoves(
 MoveID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-MoveName VARCHAR(20) NOT NULL,
-Kills VARCHAR(20) NOT NULL,
+MoveName VARCHAR(20) ,
+Kills int,
 );
 GO
 
-CREATE TABLE [drones]..tblScores(
+CREATE TABLE tblScores(
 ScoreID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 PlayerName VARCHAR(40) NOT NULL,
 GamesWon int,
 );
 GO
 
-INSERT INTO [drones]..tblMoves VALUES ('Paper','Rock');
-INSERT INTO [drones]..tblMoves VALUES ('Rock','Scissors');
-INSERT INTO [drones]..tblMoves VALUES ('Scissors','Paper');
+INSERT INTO tblMoves VALUES ('Paper',2);
+INSERT INTO tblMoves VALUES ('Rock',3);
+INSERT INTO tblMoves VALUES ('Scissors',1);

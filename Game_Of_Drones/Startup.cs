@@ -27,7 +27,8 @@ namespace Game_Of_Drones
         {
             services.AddMvc();
             services.AddTransient<IScoreDao, ScoreDao>();
-            services.AddDbContext<dronesContext>(options =>
+            services.AddTransient<IGameDao, GameDao>();
+            services.AddDbContext<masterContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DronesDatabase")));
         }
 

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import FetchCurrentGameScore from '../game/FetchCurrentGameScore';
 
-export class NavMenu extends React.Component<{}, {}> {
+export class NavMenu extends React.Component<{}, FetchCurrentGameScore> {
     public render() {
         return <div className='main-nav'>
                 <div className='navbar navbar-inverse'>
@@ -28,9 +29,16 @@ export class NavMenu extends React.Component<{}, {}> {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/counter' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-education'></span> Counter
+                            <NavLink to={ '/playerscreen' } activeClassName='active'>
+                                <span className='glyphicon glyphicon-knight'></span> Players Select
                             </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={ '/gamescore' } activeClassName='active'>
+                                <span className='glyphicon glyphicon-arrow'></span> Game Scores
+                            </NavLink>
+                        </li>
+                        <li>
                         </li>
                     </ul>
                 </div>

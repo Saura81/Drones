@@ -7,6 +7,6 @@ namespace Game_Of_Drones.Models
     {
         public int MoveId { get; set; }
         public string MoveName { get; set; }
-        public string Kills { get; set; }
+        public int Kills { get; set; }
     }
 }
