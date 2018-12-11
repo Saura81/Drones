@@ -32,7 +32,7 @@ namespace Game_Of_Drones.Controllers
         [Route("api/GameController/GetCurrentRound/{id}")]
         public string GetCurrentRound(int id)
         {
-            var round =_gameDao.GetRoundData(id);
+            var round = _gameDao.GetRoundData(id);
             if (string.IsNullOrEmpty(round.FirstPlayerMove))
             {
                 return round.FirstPlayerName;
@@ -41,7 +41,7 @@ namespace Game_Of_Drones.Controllers
             {
                 return round.SecondPlayerName;
             }
-            
+
         }
 
         [HttpGet]
@@ -51,17 +51,17 @@ namespace Game_Of_Drones.Controllers
             return _gameDao.GetMoveSet();
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("api/GameController/EditRound")]
-        public List<string> EditRound(int roundId,string  move)
+        public List<string> EditRound(int roundId, string move)
         {
             var roundInProgress = updateRoundPlayerData(move);
 
             List<string> callback = new List<string>();
-            
+
             if (string.IsNullOrEmpty(roundInProgress.Winner))
             {
-             
+
                 callback.Add(_gameDao.saveRound(roundInProgress).ToString());
 
                 if (string.IsNullOrEmpty(roundInProgress.FirstPlayerMove))
@@ -74,11 +74,14 @@ namespace Game_Of_Drones.Controllers
                 }
             }
             else
-            {               
+            {
                 _gameDao.saveRound(roundInProgress);
 
-                if (_gameDao.HaveWinner(roundInProgress))
+                var winner = _gameDao.HaveWinner(roundInProgress);
+
+                if (!string.IsNullOrEmpty(winner))
                 {
+                    callback.Add(winner);
                     return callback;
                 }
                 else
@@ -92,7 +95,7 @@ namespace Game_Of_Drones.Controllers
                     callback.Add(newRound.ToString());
                     callback.Add(roundInProgress.FirstPlayerName);
                 }
-                
+
             }
 
             return callback;
@@ -129,13 +132,13 @@ namespace Game_Of_Drones.Controllers
             {
                 updatedRound.SecondPlayerMove = playerMove;
 
-                updatedRound.Winner = _gameDao.PlayerOneBeatsTwo(updatedRound);
+                updatedRound.Winner = _gameDao.CheckingHands(updatedRound);
 
                 return updatedRound;
-                 
+
             }
         }
 
 
-}
+    }
 }

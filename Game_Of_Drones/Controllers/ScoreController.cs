@@ -20,11 +20,28 @@ namespace Game_Of_Drones.Controllers
         }
 
         [HttpGet]
-        [Route("api/Score/GetScores")]
+        [Route("api/ScoreController/GetScores")]
         public IEnumerable<TblScores> Details()
         {
             return _scoreDao.GetHighScores();
         }
+
+        [HttpGet]
+        [Route("api/ScoreController/SetNewScore/{winner}")]
+        public string SetNewScore(string winner)
+        {
+            try
+            {
+                _scoreDao.setNewScore(winner);
+                return "New Score inserted correctly and we have a winner";
+            }
+            catch(Exception ex)
+            {
+                return "An exception happened with message:" + ex.Message;
+            }
+        }
+
+
 
     }
 }

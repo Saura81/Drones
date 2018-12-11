@@ -9,5 +9,7 @@ namespace Game_Of_Drones.Services
     public interface IScoreDao
     {
         List<TblScores> GetHighScores();
+
+        void setNewScore(string winner);
     }
 }

@@ -12,7 +12,7 @@ export class PlayerScreen extends React.Component<RouteComponentProps<{}>, AddPl
         super(props);
 
         //Creating a new player selection screen
-        this.state = { title: "Add new Players", playerData: new PlayerData };
+        this.state = { title: "Add players to the new Game of Drones", playerData: new PlayerData };
 
         // This binding is necessary to make "this" work in the callback
         this.handleSave = this.handleSave.bind(this);
@@ -22,9 +22,11 @@ export class PlayerScreen extends React.Component<RouteComponentProps<{}>, AddPl
     public render() {
         let contents =  this.renderCreateForm();
 
-        return <div>
+        return <div className="col-md-16 col-md-offset-2">
+            <div>
+                <img src={require('../navigation/images/top.png')} style={{ flex: 1, height: undefined, width: undefined }} />
+            </div>
             <h1>{this.state.title}</h1>
-            <h3>New Game of Drones</h3>
             <hr />
             {contents}
         </div>;

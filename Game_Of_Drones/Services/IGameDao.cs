@@ -15,11 +15,11 @@ namespace Game_Of_Drones.Services
 
         IEnumerable<TblMoves> GetMoveSet();
 
-        string PlayerOneBeatsTwo(TblRounds updatedRound);
+        string CheckingHands(TblRounds updatedRound);
 
         int saveRound(TblRounds round);
 
-        bool HaveWinner(TblRounds round);
+        string HaveWinner(TblRounds round);
 
         TblRounds getRoundInProgress();
 

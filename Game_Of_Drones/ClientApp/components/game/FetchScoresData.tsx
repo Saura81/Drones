@@ -12,7 +12,7 @@ export class FetchScoreData extends React.Component<RouteComponentProps<{}>, Fet
         super();
         this.state = { score: [], loading: true };
 
-        fetch('api/Score/GetScores')
+        fetch('api/ScoreController/GetScores')
             .then(response => response.json() as Promise<Score[]>)
             .then(data => {
                 this.setState({ score: data, loading: false });

@@ -24,13 +24,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\components\game\FetchCurrentGameScore.tsx" />
+    <None Remove="ClientApp\components\game\GameOverScreen.tsx" />
     <None Remove="ClientApp\components\game\PlayerScreen.tsx" />
     <None Remove="ClientApp\components\Rounds.tsx" />
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\components\game\FetchCurrentGameScore.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\game\GameOverScreen.tsx" />
     <TypeScriptCompile Include="ClientApp\components\game\PlayerScreen.tsx" />
     <TypeScriptCompile Include="ClientApp\components\game\Round.tsx" />
   </ItemGroup>
